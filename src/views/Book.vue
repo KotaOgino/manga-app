@@ -7,7 +7,7 @@
       :src="data.imageUrl"
       ></v-img>
     </v-card>
-    <button type="button" @click="moveToTop" aria-label="Scroll to top" title="Scroll to top" class="v-btn v-btn--bottom v-btn--contained v-btn--fab v-btn--fixed v-btn--right v-btn--round theme--dark v-size--large green" style="transform-origin: center center;"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-up theme--dark"></i></span></button>
+    <button type="button" @click="moveToTop" aria-label="Scroll to top" title="Scroll to top" class="v-btn v-btn--bottom v-btn--contained v-btn--fab v-btn--fixed v-btn--right v-btn--round theme--dark v-size--large green" style="transform-origin: center center;"><span class="v-btn__content">上</span></button>
     <button type="button" @click="nextBook" aria-label="Scroll to top" title="Scroll to top" class="v-btn v-btn--bottom v-btn--contained v-btn--fab v-btn--fixed v-btn--left v-btn--round theme--dark v-size--large green" style="transform-origin: center center;"><span class="v-btn__content">次</span></button>
   </v-container>
   </div>
@@ -64,6 +64,9 @@ export default {
   methods: {
     fetchData() {
       this.bookId = this.$route.params.bookId;
+    },
+    moveTop() {
+      window.scrollTo(0,0)
     },
     moveToTop() {
 

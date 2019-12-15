@@ -13,7 +13,7 @@
       <v-row>
         <v-col cols=3 v-for="data in datas" v-bind:key="data.seriesId">
         <v-hover v-slot:default="{ hover }">
-          <v-card class="my-10" :elevation="hover ? 20 : 2">
+          <v-card class="my-10">
             <router-link :to="{ name: 'series', params: {id: data.seriesId} }">
             <v-img
             :aspect-ratio="15/20"
@@ -37,7 +37,7 @@
         </v-col>
         </v-row>
         <h1 class="text-center py-10">おすすめ漫画</h1>
-        <v-card class="my-10 recomendation" :elevation="hover ? 20 : 2">
+        <v-card class="my-10 recomendation">
           <!-- <router-link :to="{ name: 'series', params: {id: data.seriesId} }"> -->
           <v-row>
             <v-col cols=6>
@@ -48,21 +48,6 @@
             </v-col>
             <v-col cols=6>
               <v-card-title class="mangaTitle py-10">{{ recData.title }}</v-card-title>
-              <v-row
-                align="center"
-                class="mx-0"
-              >
-                <v-rating
-                  :value="5.0"
-                  color="amber"
-                  dense
-                  half-increments
-                  readonly
-                  size="20"
-                  class="pl-2 py-5"
-                ></v-rating>
-                <div class="grey--text ml-4">5.0 (1)</div>
-              </v-row>
               <v-card-text class="recDescription py-10">
               <p>{{recData.description}}</p>
             </v-card-text>
@@ -112,6 +97,7 @@ a{
   text-decoration: none!important;
 }
 .mangaTitle{
+  font-size: 1.5rem;
   font-weight: bold;
 }
 .v-card--reveal {

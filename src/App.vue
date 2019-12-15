@@ -13,13 +13,13 @@
       </div>
       <v-spacer></v-spacer>
       <div class="d-flex">
-        <p class="text-center" v-if="$route.name.indexOf('book') == 0">
+        <p v-if="$route.name.indexOf('book') == 0">
           {{booktitle}}
         </p>
         <!-- <p class="text-center" v-if="$route.name.indexOf('home') == 0">
           Top
         </p> -->
-        <p class="text-center" v-if="$route.name.indexOf('series') == 0">
+        <p v-if="$route.name.indexOf('series') == 0">
           {{mangatitle}}
         </p>
       </div>
@@ -54,6 +54,7 @@
 export default {
   data(){
     return{
+        msg:'',
         drawer: null,
         booktitle:'',
         mangatitle:'',
@@ -65,19 +66,28 @@ export default {
   watch:{
     '$route': function (to, from) {
     if (to.path !== from.path) {
-      this.getTitle(),
-      this.getMangaTitle()
+          if (this.$route.name.indexOf('book') == 0) {
+              this.getTitle()
+          }
+          if (this.$route.name.indexOf('series') == 0) {
+              this.getMangaTitle()
+          }
     }
   }
   },
   mounted(){
-    // this.getTitle()
+    if (this.$route.name.indexOf('book') == 0) {
+        this.getTitle()
+    }
+    if (this.$route.name.indexOf('series') == 0) {
+        this.getMangaTitle()
+    }
     // EventBus.$on('booktitle',this.getTitle)
   },
   methods:{
     getTitle: function(){
-      var bookId = this.$route.params.bookId
-      fetch(this.bookUrl + bookId)
+      const bookId = this.$route.params.bookId
+      fetch(this.apiUrl + bookId)
       .then( response => {
         return response.json()
       })
