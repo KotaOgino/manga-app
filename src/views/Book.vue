@@ -20,6 +20,7 @@ export default {
 
   data() {
     return {
+      msg:'',
       bookUrl: 'https://wfc2-image-api-259809.appspot.com/api/books/',
       apiUrl: 'https://wfc2-image-api-259809.appspot.com/api/series/',
       datas: [],
@@ -81,11 +82,6 @@ export default {
 
       }, interval);
     },
-    // moveToBottom() {
-    //   var element = document.documentElement;
-    //   var bottom = element.scrollHeight - element.clientHeight;
-    //   window.scroll(0, bottom);
-    // },
     nextBook() {
       var seriesId = this.$route.params.id
       var bookId = this.bookId

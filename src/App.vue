@@ -24,11 +24,22 @@
         </p>
       </div>
       <v-spacer></v-spacer>
-      <div class="d-flex">
-      <router-link to="/">
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
-      </router-link>
-      </div>
+      <!-- <div class="d-flex"> -->
+      <!-- <router-link to="/"> -->
+        <!-- <v-menu>
+        <template v-slot:activator="{ on }">
+            <v-app-bar-nav-icon v-on="on"></v-app-bar-nav-icon>
+        </template>
+        <v-list>
+          <v-list-item>
+            <v-list-item-title>ホームに戻る</v-list-item-title>
+            <v-list-item-title>前のページに戻る</v-list-item-title>
+            <v-list-item-title>マイページへ</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu> -->
+      <!-- </router-link> -->
+      <!-- </div> -->
     </v-app-bar>
 
     <v-content>
