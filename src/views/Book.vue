@@ -1,6 +1,5 @@
 <template lang="html">
   <div class="book">
-    <!-- <p class="white">{{datas}}</p> -->
     <v-container>
     <v-card class="my-10" v-for="data in datas['imageData']" v-bind:key="data.imageId">
       <v-img
@@ -14,7 +13,6 @@
 </template>
 
 <script>
-// import EventBus from '../EventBus.js'
 
 export default {
 
@@ -95,7 +93,7 @@ export default {
         .then(json => {
           const bookDatas = json.books;
           const now = bookDatas.findIndex(b => b.id === bookId);
-          if (now !== bookDatas.length) {
+          if (now !== bookDatas.length -1) {
             const nextbookId = bookDatas[now + 1].id
             this.$router.push({ name: 'book', params:{bookId:nextbookId} });
           }else{

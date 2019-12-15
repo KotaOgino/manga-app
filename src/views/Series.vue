@@ -1,6 +1,7 @@
 <template lang="html">
   <div class="manga">
     <v-container>
+      <h1 class="py-10">{{ datas.title }}（全{{datas.volumes}}巻）</h1>
       <v-row>
       <v-col cols=3 v-for="data in datas['books']" v-bind:key="data.id">
       <v-hover v-slot:default="{ hover }">
@@ -59,6 +60,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.mangaTitle{
+  font-size: .8rem;
+  font-weight: bold;
+}
 .v-card--reveal {
   align-items: center;
   bottom: 0;

@@ -1,13 +1,5 @@
 <template>
   <div class="home">
-    <!-- <v-carousel cycle="cycle" interval="4000" :height="height">
-  <v-carousel-item
-    v-for="data in datas" v-bind:key="data.seriesId"
-    :src="data.seriesImage"
-    reverse-transition="fade-transition"
-    transition="fade-transition">
-</v-carousel-item>
-</v-carousel> -->
     <v-container>
       <h1 class="text-center pt-10">掲載漫画一覧</h1>
       <v-row>
@@ -38,7 +30,7 @@
         </v-hover>
         </v-col>
         </v-row>
-        <h1 class="text-center py-10">おすすめ漫画</h1>
+        <h1 class="text-center py-10">おすすめの漫画</h1>
         <router-link :to="{ name: 'series', params: {id: recData.seriesId} }">
         <v-card class="my-10 recomendation">
           <v-row>
