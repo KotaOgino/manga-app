@@ -43,6 +43,42 @@
     </v-app-bar>
 
     <v-content>
+    <template>
+  <v-row justify="center">
+    <v-dialog
+      v-model="showContent"
+      max-width="600"
+    >
+      <v-card>
+        <v-card-title class="headline"><span class="tention">2021年度新卒採用エンジニアコース</span><br><span class="tention">本選考START！</span></v-card-title>
+
+        <!-- <v-card-text class="caImage"> -->
+        <v-card-text>
+          <img src="./assets/carecruit.png" width="500" alt="">
+          <!-- Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running. -->
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="red darken-1"
+            text
+            @click="showContent = false"
+          >
+            興味がない
+          </v-btn>
+          <v-btn
+            color="green darken-1"
+            text
+            @click="showContent = false"
+          >
+            詳細はこちら
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-row>
+</template>
       <router-view/>
     </v-content>
   </v-app>
@@ -55,9 +91,11 @@ export default {
   data(){
     return{
         msg:'',
+        showContent:'false',
         drawer: null,
         booktitle:'',
         mangatitle:'',
+        // api:'https://wfc2-image-api-259809.appspot.com/api'
         apiUrl: 'https://wfc2-image-api-259809.appspot.com/api/series/',
         bookUrl:'https://wfc2-image-api-259809.appspot.com/api/books/',
         datas:[]
@@ -76,6 +114,7 @@ export default {
   }
   },
   mounted(){
+    this.adBanner()
     if (this.$route.name.indexOf('book') == 0) {
         this.getTitle()
     }
@@ -87,13 +126,13 @@ export default {
   methods:{
     getTitle: function(){
       const bookId = this.$route.params.bookId
-      fetch(this.apiUrl + bookId)
+      fetch(this.urlApi + bookId)
       .then( response => {
         return response.json()
       })
       .then( json => {
         this.datas = json
-        this.booktitle = json.title
+        this.booktitle = this.datas.title
       })
       .catch( (err) => {
         this.msg = err // エラー処理
@@ -106,13 +145,19 @@ export default {
           return response.json()
         })
         .then( json => {
-          // this.datas = json
-          this.mangatitle = json.title
+          this.datas = json
+          this.mangatitle = this.datas.title
         })
         .catch( (err) => {
           this.msg = err // エラー処理
         });
-      }
+      },
+    adBanner: function(){
+      this.showContent = true
+    },
+    closeModal: function(){
+      this.showContent = false
+    }
   }
 };
 </script>
@@ -126,5 +171,15 @@ export default {
   font-weight: bold;
   color: #ffffff;
   text-decoration: none;
+}
+.headline{
+  margin: 0 auto;
+}
+.tention{
+  line-height: 200%;
+  font-size: 2rem;
+  color: #088A08;
+  font-weight: bold;
+  margin: 0 auto;
 }
 </style>

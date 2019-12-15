@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Serise from '../views/Series.vue'
 import Book from '../views/Book.vue'
+import Detail from '../views/Detail.vue'
 
 Vue.use(VueRouter)
 
@@ -29,7 +30,13 @@ const routes = [
     name: 'book',
     component: Book,
     props: true
-  }
+  },
+  {
+    path: '/detail/:id',
+    name: 'detail',
+    component: Detail,
+    props: true
+  },
 
 ]
 

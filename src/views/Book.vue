@@ -7,8 +7,8 @@
       :src="data.imageUrl"
       ></v-img>
     </v-card>
-    <button type="button" @click="moveToTop" aria-label="Scroll to top" title="Scroll to top" class="v-btn v-btn--bottom v-btn--contained v-btn--fab v-btn--fixed v-btn--right v-btn--round theme--dark v-size--large green" style="transform-origin: center center;"><span class="v-btn__content">上</span></button>
-    <button type="button" @click="nextBook" aria-label="Scroll to top" title="Scroll to top" class="v-btn v-btn--bottom v-btn--contained v-btn--fab v-btn--fixed v-btn--left v-btn--round theme--dark v-size--large green" style="transform-origin: center center;"><span class="v-btn__content">次</span></button>
+    <button type="button" @click="backToSeries" aria-label="Scroll to top" title="Scroll to top" class="v-btn v-btn--bottom v-btn--contained v-btn--fab v-btn--fixed v-btn--right v-btn--round theme--dark v-size--large green" style="transform-origin: center center;"><span class="v-btn__content">戻る</span></button>
+    <button type="button" @click="nextBook" aria-label="Scroll to top" title="Scroll to top" class="v-btn v-btn--bottom v-btn--contained v-btn--fab v-btn--fixed v-btn--left v-btn--round theme--dark v-size--large green" style="transform-origin: center center;"><span class="v-btn__content">次巻</span></button>
   </v-container>
   </div>
 </template>
@@ -107,6 +107,10 @@ export default {
           this.msg = err // エラー処理
         });
 
+    },
+    backToSeries() {
+      const seriesId = this.$route.params.id
+      this.$router.push({ name: 'series', params:{id:seriesId} });
     }
 
   }

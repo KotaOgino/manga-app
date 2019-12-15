@@ -29,6 +29,8 @@
               <br>
               <br>
               <span>{{data.description}}</span>
+              <br>
+              <router-link :to="{ name: 'detail', params: {id:data.seriesId}}"><p class="toDetail">詳細を見る</p></router-link>
           </div>
           </v-expand-transition>
             </router-link>
@@ -37,8 +39,8 @@
         </v-col>
         </v-row>
         <h1 class="text-center py-10">おすすめ漫画</h1>
+        <router-link :to="{ name: 'series', params: {id: recData.seriesId} }">
         <v-card class="my-10 recomendation">
-          <!-- <router-link :to="{ name: 'series', params: {id: data.seriesId} }"> -->
           <v-row>
             <v-col cols=6>
               <v-img
@@ -56,8 +58,8 @@
             <v-chip class="mt-5">巻数：全{{recData.volumes}}巻</v-chip>
             </v-col>
           </v-row>
-          <!-- </router-link> -->
         </v-card>
+        </router-link>
     </v-container>
     <div>
     </div>
@@ -97,6 +99,10 @@ a{
   text-decoration: none!important;
 }
 .mangaTitle{
+  font-size: 1rem;
+  font-weight: bold;
+}
+.recomendation .mangaTitle{
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -113,5 +119,10 @@ a{
   font-size: 1rem;
   letter-spacing: .1rem;
   line-height: 200%;
+}
+.toDetail{
+  text-align:right;
+  opacity: 1;
+  color: blue;
 }
 </style>
