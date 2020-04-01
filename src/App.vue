@@ -8,7 +8,7 @@
     >
       <div class="d-flex align-center py-10">
         <router-link to="/" class="cymanga">
-        AbeManga
+        MangaApp
         </router-link>
       </div>
       <v-spacer></v-spacer>
