@@ -31,9 +31,9 @@
       max-width="600"
     >
       <v-card>
-        <v-card-title class="headline"><span class="tention">2021年度新卒採用エンジニアコース</span><br><span class="tention">本選考START！</span></v-card-title>
+        <v-card-title class="headline"><span class="tention">編集長おすすめの漫画はこちら！</span></v-card-title>
         <v-card-text>
-          <img src="./assets/carecruit.png" width="550" alt="">
+          <img src="./assets/maxresdefault.jpg" width="550" alt="">
         </v-card-text>
 
         <v-card-actions>
@@ -43,15 +43,7 @@
             text
             @click="showContent = false"
           >
-            興味がない
-          </v-btn>
-          <v-btn
-            color="green darken-1"
-            text
-            href="https://www.cyberagent.co.jp/careers/special/engineer2021/?utm_source=caec&utm_medium=slack&utm_campaign=dm"
-            target="_blank"
-          >
-            詳細はこちら
+            閉じる
           </v-btn>
         </v-card-actions>
       </v-card>
